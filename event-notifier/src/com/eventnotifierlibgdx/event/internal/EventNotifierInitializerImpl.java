@@ -1,11 +1,19 @@
 package com.eventnotifierlibgdx.event.internal;
 
-import com.eventnotifierlibgdx.event.api.*;
+import com.eventnotifierlibgdx.event.api.Event;
+import com.eventnotifierlibgdx.event.api.EventNotifier;
+import com.eventnotifierlibgdx.event.api.EventNotifierInitializer;
+import com.eventnotifierlibgdx.event.api.HandlesEvent;
+import com.eventnotifierlibgdx.event.api.InjectEventNotifier;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class EventNotifierInitializerImpl implements EventNotifierInitializer
 {
@@ -76,7 +84,7 @@ public class EventNotifierInitializerImpl implements EventNotifierInitializer
         }
     }
 
-    private class EventHandlerFactory
+    private static class EventHandlerFactory
     {
         EventHandler create(
             final MethodInvoker methodInvoker)
